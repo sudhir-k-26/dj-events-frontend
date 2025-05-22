@@ -15,6 +15,14 @@ const Map = dynamic(() => import('@/components/Map'), {
 });
 export default function EventPage({ evt }) {
   const router = useRouter();
+   // Show loading state while fallback route is being generated
+  if (router.isFallback) {
+    return <div>Loading...</div>;
+  }
+
+  if (!evt) {
+    return <p>No event found</p>;
+  }
   const description = evt.description;
   const descriptionText = description
     ?.map((desc) => desc.children?.map((child) => child.text).join(' '))
