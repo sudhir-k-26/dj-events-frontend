@@ -24,7 +24,7 @@ export default function DashboardPage({ events, token }) {
       }
     }
   };
-  const eventsData = events.data;
+  const eventsData = Array.isArray(events?.data) ? events.data : [];
   return (
     <Layout title='User Dashboard'>
       <div className={styles.dash}>
