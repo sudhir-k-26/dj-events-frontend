@@ -93,10 +93,16 @@ export async function getStaticProps({ params: { slug } }) {
   );
   const data = await res.json();
   const events = data.data;
+  if (!events || events.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       evt: events[0],
     },
+    revalidate: 1,
   };
 }
 // export async function getServerSideProps({ query: { slug } }) {
