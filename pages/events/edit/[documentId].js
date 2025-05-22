@@ -9,7 +9,7 @@ import { API_URL } from '@/config/index';
 import styles from '@/styles/Form.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import moment from 'moment';
-import Modal from '@/components/modal';
+import Modal from '@/components/Modal';
 import ImageUpload from '@/components/ImageUpload';
 import { parseCookies } from '@/helpers/index';
 export default function EditEventPage({ evt, token }) {
