@@ -23,10 +23,11 @@ export default function EventPage({ evt }) {
   if (!evt) {
     return <p>No event found</p>;
   }
-  const description = evt.description;
-  const descriptionText = description
-    ?.map((desc) => desc.children?.map((child) => child.text).join(' '))
-    .join(' '); // Join multiple paragraphs if there are any
+  const descriptionText = Array.isArray(evt.description)
+  ? evt.description
+      .map((desc) => desc.children?.map((child) => child.text).join(' '))
+      .join(' ')
+  : 'No description available.'; // Join multiple paragraphs if there are any
 
   // const deleteEvent = async (e) => {
   //   if (confirm('Are you sure?')) {
